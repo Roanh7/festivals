@@ -1,144 +1,139 @@
-
-/* Algemene reset */
+/* ====================== RESET & BASIS ====================== */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Zorg dat borders en paddings binnen de breedte vallen */
+    box-sizing: border-box;
 }
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Voorkom horizontale scrollbalken */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f9f9f9;
     color: #333;
 }
+
+/* ====================== HEADER ====================== */
 header {
     background: #4CAF50;
     color: white;
     text-align: center;
     padding: 1rem 0;
-    font-size: 2rem;
-    width: 100%; /* Zorgt ervoor dat de header altijd de volledige breedte inneemt */
+    /* Geen extra margin hier om de pagina volledig te laten aansluiten */
 }
+
+/* ====================== LOGO-CONTAINER (exact als reviews) ====================== */
 .logo-container {
     text-align: center;
-    margin: 1rem auto;
-    width: 90%; /* Zelfde breedte als andere containers */
-    max-width: 1200px;
+    margin: 0;               /* Geen marges */
+    background-color: #fff;  /* Exact zoals reviews-pagina */
 }
 .logo-container img {
     width: 100%;
     height: auto;
-    display: block;
+    display: block;          /* Voorkomt inline gap onder de afbeelding */
 }
+
+/* ====================== NAVIGATIEBALK ====================== */
+.nav-bar {
+    background-color: #4CAF50; 
+    width: 100%;
+}
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;           
+    justify-content: center; 
+}
+.nav-bar li {
+    margin: 0;
+}
+.nav-bar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.5rem;  
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.nav-bar a:hover {
+    background-color: #45a049; 
+}
+
+/* ====================== COUNTDOWN (optioneel, indien aanwezig) ====================== */
+#countdown-container {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+}
+#countdown-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+#countdown {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* ====================== TABLE & AGENDA ====================== */
 .table-container {
-  width: 90%; /* Breedte consistent met andere secties */
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow-x: auto; /* Zorg voor horizontale scrollbaarheid */
-  display: block; /* Zorgt ervoor dat het werkt op mobiele apparaten */
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;      /* Ruimte boven/onder */
+    overflow-x: auto;       /* Scroll als de tabel breder is dan de container */
+    display: block;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 600px; /* Zorg ervoor dat de tabel niet te smal wordt */
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; 
 }
 
 th, td {
-  border: 1px solid #ddd;
-  text-align: center;
-  padding: 0.8rem;
-  word-wrap: break-word; /* Zorg dat de tekst netjes afbreekt */
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 0.8rem;
+    word-wrap: break-word;
 }
 
 th {
-  background-color: #4CAF50;
-  color: white;
+    background-color: #4CAF50;
+    color: white;
 }
+
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 tr:hover {
     background-color: #ddd;
 }
+
+/* Highlight-kleuren */
 .highlight-green {
     background-color: #d4edda;
 }
 .highlight-yellow {
     background-color: #fff3cd;
 }
-footer {
-    text-align: center;
-    margin: 2rem 0;
-    font-size: 0.9rem;
-    color: #666;
-}
-/* Media queries voor responsiviteit */
-@media (max-width: 768px) {
-    header {
-        font-size: 1.5rem; /* Verklein de tekst voor tablets */
-        padding: 0.8rem;
-    }
-    .logo-container {
-        width: 95%; /* Zorg dat de container goed schaalt */
-    }
-    .table-container {
-        width: 95%;
-    }
-    .field-container {
-        width: 95%;
-    }
-    .reviews-link-container {
-        width: 95%;
-    }
-}
-/* Algemeen: Compacte tabelweergave */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed; /* Dwing gelijke kolombreedtes af */
+
+.festival-link {
+    color: #060606;
+    text-decoration: underline;
 }
 
-/* Kolommen kleiner maken op mobiel */
-@media (max-width: 768px) {
-  th, td {
-      font-size: 0.9rem; /* Verklein de tekst */
-      padding: 0.5rem; /* Minder padding */
-  }
-
-  th:nth-child(6), td:nth-child(6), /* Hersteltijd */
-  th:nth-child(7), td:nth-child(7) /* Chip Scale */ {
-      display: table-cell; /* Zorg dat deze kolommen zichtbaar blijven */
-  }
+.festival-link:hover {
+    text-decoration: underline;
 }
 
-@media (max-width: 480px) {
-  th, td {
-      font-size: 0.8rem; /* Nog kleinere tekst voor kleine schermen */
-      padding: 0.3rem;
-  }
-
-  /* Kolombreedtes specifiek instellen */
-  th, td {
-      white-space: nowrap; /* Voorkom dat tekst meerdere regels inneemt */
-      text-overflow: ellipsis; /* Voeg "..." toe bij lange tekst */
-      overflow: hidden;
-  }
-}
-/* Zorg ervoor dat alleen de tabel horizontaal scrolbaar is */
-.table-container {
-  width: 100%; /* Gebruik de volledige breedte van de pagina */
-  overflow-x: auto; /* Voeg horizontale scroll toe */
-  margin: 1rem auto; /* Voeg wat ruimte rondom de container toe */
-}
-
-table {
-  width: 100%; /* Zorg ervoor dat de tabel zijn oorspronkelijke breedte behoudt */
-  border-collapse: collapse;
-  min-width: 1000px; /* Stel een minimale breedte in voor de tabel */
-}
-
-/* Algemene veld styling */
+/* ====================== VELD (S-TEAM) ====================== */
 .field-container {
     text-align: center;
     margin: 2rem auto;
@@ -155,16 +150,16 @@ table {
 }
 
 .field {
-    position: relative; /* Essentieel voor positionering van spelers en namen */
+    position: relative;
     width: 100%;
     max-width: 600px;
     height: 800px;
-    background: linear-gradient(to bottom, #228B22, #006400); /* Grasgroen */
-    border: 5px solid white; /* Witte veldlijnen */
+    background: linear-gradient(to bottom, #228B22, #006400);
+    border: 5px solid white;
     border-radius: 15px;
     margin: 0 auto;
-    overflow: hidden; /* Zorg dat alles binnen het veld blijft */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Mooie schaduw */
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Middenlijn */
@@ -190,52 +185,39 @@ table {
     border: 2px solid white;
     border-radius: 50%;
     transform: translate(-50%, -50%);
+    pointer-events: none; 
+    z-index: 0;
 }
 
-/* Speler styling */
+
+
+/* Speler-icoontjes */
 .player {
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: #4CAF50; /* Spelergroen */
-    border: 2px solid white; /* Witte rand */
-    border-radius: 50%; /* Maak het een cirkel */
-    color: white; /* Witte tekst */
+    background-color: #4CAF50;
+    border: 2px solid white;
+    border-radius: 50%;
+    color: white;
     text-align: center;
     line-height: 60px;
     font-weight: bold;
     font-size: 1.2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Schaduw voor 3D-effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    z-index: 10; /* Zorg dat de spelers bovenop staan */
-    
+    z-index: 10;
 }
-
 .player:hover {
-    transform: scale(1.1); /* Zoom-effect bij hover */
+    transform: scale(1.1);
 }
 
-/* Namen correct onder de spelers */
-/* Spelernaam styling */
+/* Omhulsel voor speler en naam */
 .player-container {
-    position: absolute;          /* De container bepaalt zelf waar hij op het veld staat */
+    position: absolute;
     width: 60px;
-    height: 80px;               /* wat extra ruimte onder de cirkel voor de naam */
-    text-align: center;         /* zorg dat alles in het midden blijft */
-    /* Plaatsing per positie hieronder via top/left */
-}
-
-/* Voorbeeldposities (zoals eerst in je .player stond) */
-.goalkeeper {
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%); 
-}
-
-.defender-left {
-    top: 65%;
-    left: 25%;
-    transform: translateX(-50%); 
+    height: 80px; 
+    text-align: center;
 }
 .player-name {
     position: absolute;
@@ -244,45 +226,80 @@ table {
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    top: calc(100% + 5px); /* Plaats de naam onder de speler */
+    top: calc(100% + 5px);
     left: 50%;
     transform: translateX(-50%);
-    z-index: 5; /* Zorg dat de naam zichtbaar blijft */
+    z-index: 5;
 }
 
-/* Specifieke posities voor spelers */
+/* Posities - voorbeeld */
 .goalkeeper {
     top: 85%;
     left: 50%;
+    transform: translateX(-50%);
 }
-
 .defender-left {
     top: 65%;
     left: 25%;
+    transform: translateX(-50%);
 }
-
 .defender-right {
     top: 65%;
     left: 75%;
+    transform: translateX(-50%);
 }
-
 .midfielder {
     top: 45%;
     left: 50%;
+    transform: translateX(-50%);
 }
-
 .striker {
     top: 15%;
     left: 50%;
+    transform: translateX(-50%);
 }
 
-.reviews-link-container {
+/* ====================== BANK ====================== */
+.bank-container {
     text-align: center;
     margin: 2rem auto;
     width: 90%;
+    max-width: 600px;
+}
+.bank-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+    text-decoration: underline;
+}
+.bank-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.bank-player {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.bank-player:hover {
+    background-color: #f2f2f2;
+}
+
+/* ====================== DOWNLOAD-LINK ====================== */
+.download-link-container {
+    text-align: center;
+    margin: 1rem auto;
+    width: 90%;
     max-width: 1200px;
 }
-.reviews-link {
+.download-link {
     display: inline-block;
     padding: 0.8rem 1.5rem;
     background-color: #4CAF50;
@@ -292,127 +309,11 @@ table {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-.reviews-link:hover {
+.download-link:hover {
     background-color: #45a049;
 }
-.bank-container {
-text-align: center;
-margin: 2rem auto;
-width: 90%;
-max-width: 600px; 
-}
-.bank-title {
-font-size: 1.5rem;
-font-weight: bold;
-margin-bottom: 1rem;
-color: #333;
-text-decoration: underline;
-}
-.bank-list {
-list-style-type: none;
-padding: 0;
-margin: 0;
-}
-.bank-player {
-font-size: 1rem;
-color: #555;
-margin: 0.5rem 0;
-padding: 0.5rem;
-background-color: #f9f9f9;
-border: 1px solid #ddd;
-border-radius: 5px;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-.bank-player:hover {
-background-color: #f2f2f2;
-}
-.download-link-container {
-text-align: center;
-margin: 1rem auto;
-width: 90%;
-max-width: 1200px;
-}
 
-.download-link {
-display: inline-block;
-padding: 0.8rem 1.5rem;
-background-color: #4CAF50;
-color: white;
-font-size: 1rem;
-text-decoration: none;
-border-radius: 5px;
-transition: background-color 0.3s ease;
-}
-
-.download-link:hover {
-background-color: #45a049;
-}
-.extra-info-link-container {
-text-align: center;
-margin: 1rem auto;
-width: 90%;
-max-width: 1200px;
-}
-
-.extra-info-link {
-display: inline-block;
-padding: 0.8rem 1.5rem;
-background-color: #4CAF50;
-color: white;
-font-size: 1rem;
-text-decoration: none;
-border-radius: 5px;
-transition: background-color 0.3s ease;
-}
-
-.extra-info-link:hover {
-background-color: #45a049;
-}
-
-#countdown-container {
-  text-align: center;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #f4f4f4;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  max-width: 600px;
-  font-family: Arial, sans-serif;
-}
-#countdown-container h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-#countdown {
-  font-size: 1.2rem;
-  color: #4CAF50;
-  font-weight: bold;
-}
-@media (max-width: 480px) {
-  #countdown-container {
-      font-size: 0.9rem; /* Verklein tekst voor mobiel */
-      padding: 0.5rem;
-  }
-  #countdown {
-      font-size: 0.8rem;
-  }
-  #festival-name {
-      font-size: 1rem;
-  }
-}
-body {
-  width: 100%;
-  overflow-x: hidden; /* Vermijd horizontaal scrollen */
-}
-
-#countdown-container {
-  text-align: center;
-  width: 90%;
-  margin: 1rem auto;
-  max-width: 600px;
-}
-
-/* Popup styling */
+/* ====================== POPUP ====================== */
 .popup {
     position: fixed;
     top: 0;
@@ -422,17 +323,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Donkere overlay */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
-
 .popup.hidden {
-    display: none; /* Popup verbergen */
+    display: none;
 }
-
 .popup-content {
-    background-color: #f4f4f4; /* Lichte achtergrond */
-    border: 3px solid #4CAF50; /* Groen van de spelers */
+    background-color: #f4f4f4;
+    border: 3px solid #4CAF50;
     border-radius: 15px;
     padding: 2rem;
     max-width: 450px;
@@ -441,8 +340,6 @@ body {
     text-align: center;
     color: #333;
 }
-
-/* Sluitknop */
 .close-popup-btn {
     background-color: #4CAF50;
     color: white;
@@ -453,91 +350,45 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .close-popup-btn:hover {
     background-color: #45a049;
-    transform: scale(1.1); /* Zoom-effect */
+    transform: scale(1.1);
 }
 
-/* Skills sectie */
-.skills-section h3 {
-    font-size: 1.5rem;
-    color: #4CAF50; /* Consistente groene kleur */
-    font-weight: bold;
-    text-decoration: underline;
-    margin-bottom: 1rem;
-}
-
-.rating-section {
-    flex: 1;
-}
-
-.rating-box {
-    border: 2px solid black;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.rating-label {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.info-section {
-    flex: 1;
-    text-align: left;
-}
-
-.skills-section {
-    margin: 1.5rem 0;
-}
-
-.skills-section h3 {
-    font-size: 1.2rem;
-    color: #4CAF50; /* Groen van de site */
-    font-weight: bold;
-    text-decoration: underline;
-    margin-bottom: 0.5rem;
-}
-
-.skills-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.skills-section li {
-    margin: 0.3rem 0;
-    font-size: 1rem;
-    color: #333;
-}
-
-.close-popup-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.close-popup-btn:hover {
-    background-color: #45a049;
-}
-
-/* Klasse voor geselecteerde festivals */
-.selected-festival {
-    background-color: #d5d6a5 !important; /* Een zachte groene tint */
-    color: #333; /* Eventueel tekstkleur iets donkerder laten */
-}
-
+/* ====================== TABEL-RIJ KLIKBAAR ====================== */
 table tr {
     cursor: pointer;
-  }
+}
 
-  
+/* ====================== FOOTER ====================== */
+footer {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+
+/* ====================== RESPONSIVE BREAKPOINTS ====================== */
+@media (max-width: 768px) {
+    .table-container {
+        width: 95%;
+        margin: 1rem auto;
+    }
+    .field-container {
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    #countdown-container {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+    #countdown {
+        font-size: 0.8rem;
+    }
+    #festival-name {
+        font-size: 1rem;
+    }
+}
