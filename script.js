@@ -77,7 +77,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     // Stats object
     const playerStats = {
-      "MD": {
+      "Roan": {
         position: "Keeper",
         age: 23,
         rating: "Rating: 82",
@@ -167,6 +167,7 @@
         "909": "https://www.909festival.nl",
         "Open Air": "https://www.amsterdamopenair.nl",
         "Free Your Mind": "https://www.freeyourmindfestival.nl",
+        "Boothstock Festival": "https://www.boothstock.nl",
         "Mystic Garden Festival": "https://www.mysticgardenfestival.nl",
         "Awakenings Festival": "https://www.awakenings.nl",
         "Tomorrowland": "https://www.tomorrowland.com",
